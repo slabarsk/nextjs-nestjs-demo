@@ -31,6 +31,10 @@ export class PostsService {
     return this.posts;
   }
 
+findOne(id: number): Post | undefined {
+  return this.posts.find(p => p.id === id);
+}
+
   create(dto: { title: string; body?: string }): Post {
     const post: Post = {
       id: this.nextId++,

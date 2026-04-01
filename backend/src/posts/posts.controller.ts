@@ -17,6 +17,11 @@ export class PostsController {
     return this.service.findAll();
   }
 
+  @Get(':id')          // ← GET /posts/1
+findOne(@Param('id') id: string) {
+  return this.service.findOne(+id);
+}
+
   @Post()          // ← POST /posts
   create(@Body() dto: { title: string; body?: string }) {
     return this.service.create(dto);
